@@ -3,6 +3,23 @@
   
     
     <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>/2017/10/13/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[collections模块使用]]></title>
       <url>/2017/10/13/collections%E6%A8%A1%E5%9D%97%E4%BD%BF%E7%94%A8/</url>
       <content type="html"><![CDATA[<h1 id="collections-namedtuple"><a href="#collections-namedtuple" class="headerlink" title="collections.namedtuple"></a><code>collections.namedtuple</code></h1><h3 id="collections-nametuple是一个工厂函数，主要用来产生可以使用名称来访问元素的数据对象，通常用来增强代码的可读性，-在访问一些tuple类型的数据时尤其好用。"><a href="#collections-nametuple是一个工厂函数，主要用来产生可以使用名称来访问元素的数据对象，通常用来增强代码的可读性，-在访问一些tuple类型的数据时尤其好用。" class="headerlink" title="collections.nametuple是一个工厂函数，主要用来产生可以使用名称来访问元素的数据对象，通常用来增强代码的可读性， 在访问一些tuple类型的数据时尤其好用。"></a>collections.nametuple是一个工厂函数，主要用来产生可以使用名称来访问元素的数据对象，通常用来增强代码的可读性， 在访问一些tuple类型的数据时尤其好用。</h3><p>用 <code>namedtuple</code> 构建的类的实例所消耗的内存跟元组是一样的。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="string">"""</span></div><div class="line"><span class="string">比如我们用户拥有一个这样的数据结构，每一个对象是拥有三个元素的tuple。</span></div><div class="line"><span class="string">使用namedtuple方法就可以方便的通过tuple来生成可读性更高也更好用的数据结构。</span></div><div class="line"><span class="string">"""</span></div><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> namedtuple</div><div class="line">websites = [</div><div class="line">    (<span class="string">'Sohu'</span>, <span class="string">'http://www.google.com/'</span>, <span class="string">u'张朝阳'</span>),</div><div class="line">    (<span class="string">'Sina'</span>, <span class="string">'http://www.sina.com.cn/'</span>, <span class="string">u'王志东'</span>),</div><div class="line">    (<span class="string">'163'</span>, <span class="string">'http://www.163.com/'</span>, <span class="string">u'丁磊'</span>)</div><div class="line">]</div><div class="line">Website = namedtuple(<span class="string">'Website'</span>, [<span class="string">'name'</span>, <span class="string">'url'</span>, <span class="string">'founder'</span>])</div><div class="line"><span class="keyword">for</span> website <span class="keyword">in</span> websites:</div><div class="line">    website = Website._make(website)</div><div class="line">    <span class="keyword">print</span> website</div><div class="line"><span class="comment"># Result:</span></div><div class="line">Website(name=<span class="string">'Sohu'</span>, url=<span class="string">'http://www.google.com/'</span>, founder=<span class="string">u'\u5f20\u671d\u9633'</span>)</div><div class="line">Website(name=<span class="string">'Sina'</span>, url=<span class="string">'http://www.sina.com.cn/'</span>, founder=<span class="string">u'\u738b\u5fd7\u4e1c'</span>)</div><div class="line">Website(name=<span class="string">'163'</span>, url=<span class="string">'http://www.163.com/'</span>, founder=<span class="string">u'\u4e01\u78ca'</span>)</div></pre></td></tr></table></figure></p>
@@ -32,23 +49,6 @@
       <title><![CDATA[The First Blog.]]></title>
       <url>/2017/10/13/The-First-Blog/</url>
       <content type="html"></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Hello World]]></title>
-      <url>/2017/10/13/hello-world/</url>
-      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
       
         
     </entry>
